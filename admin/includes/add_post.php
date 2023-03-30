@@ -11,7 +11,7 @@ if (isset($_POST['create_post'])) {
     $post_tags          = $_POST['post_tags'];
     $post_content       = $_POST['post_content'];
     $post_date          = date('d-m-y');
-    $post_comment_count = 4;
+    $post_comment_count = 0;
 
     move_uploaded_file($post_image_temp, "../images/$post_image");
 
@@ -20,6 +20,7 @@ if (isset($_POST['create_post'])) {
     $create_post_query = mysqli_query($connection, $query);
 
     confirm_query($create_post_query);
+    header("Location: posts.php");
 
 }
 ?>
