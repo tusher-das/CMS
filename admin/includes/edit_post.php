@@ -84,9 +84,19 @@ if (isset($_POST['update_post'])) {
         <input type="text" value="<?php echo $post_author; ?>" name="post_author" class="form-control">
     </div>
     <div class="form-group">
-        <label for="post_status">Post Status</label>
-        <input type="text" name="post_status" value="<?php echo $post_status; ?>" class="form-control">
+        <label for="post_image">Post Status</label>
+        <select name="post_status" class="form-control">
+            <option value='<?php echo $post_status; ?>'><?php echo $post_status; ?></option>
+            <?php
+            if ($post_status === 'published') {
+                echo "<option value='draft'>draft</option>";
+            } else {
+                echo "<option value='published'>published</option>";
+            }
+            ?>
+        </select>
     </div>
+
     <div class="form-group">
         <label for="post_image">Post Image</label>
         <img width="100" height="50" src="../images/<?php echo $post_image; ?>" alt="">
