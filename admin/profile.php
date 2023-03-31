@@ -54,12 +54,9 @@ if (isset($_POST['update_profile'])) {
 
             <!-- Page Heading -->
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Welcome to admin
-                        <small>Author</small>
-                    </h1>
+                <?php include("includes/admin_heading.php"); ?>
 
+                <div class="col-lg-12">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="user_firstname">Firstname </label>
