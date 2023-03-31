@@ -68,7 +68,12 @@ if (isset($_POST['update_post'])) {
             while ($row = mysqli_fetch_assoc($all_categories)) {
                 $cat_id    = $row['cat_id'];
                 $cat_title = $row['cat_title'];
-                echo "<option value='$cat_id'>{$cat_title}</option>";
+                if ($post_category_id == $cat_id) {
+                    echo "<option value='$cat_id' selected>{$cat_title}</option>";
+                } else {
+                    echo "<option value='$cat_id'>{$cat_title}</option>";
+                }
+
             }
             ?>
 
