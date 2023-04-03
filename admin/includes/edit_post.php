@@ -50,7 +50,11 @@ if (isset($_POST['update_post'])) {
 
     $update_post_query = mysqli_query($connection, $query);
     confirm_query($update_post_query);
-    header("Location: posts.php");
+
+    echo "<div class='alert alert-success' role='alert'>
+  Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Post</a> or <a href='posts.php'>Edit More Posts</a>
+</div>";
+    // header("Location: posts.php");
 }
 ?>
 
