@@ -86,4 +86,12 @@ function delete_a_category()
     }
 }
 
+function tableCount($table_name)
+{
+    global $connection;
+    $query            = "SELECT * FROM $table_name";
+    $select_all_posts = mysqli_query($connection, $query);
+    return mysqli_num_rows($select_all_posts);
+}
+
 ?>
