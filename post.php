@@ -91,8 +91,11 @@
                     }
 
                     //query for update post comment count
-                    $query                       = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+            
+                    $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
                     $query .= "WHERE post_id = $the_post_id";
+
+
                     $increase_post_comment_count = mysqli_query($connection, $query);
                     if (!$increase_post_comment_count) {
                         die("Query Failed " . mysqli_error($connection));
@@ -162,19 +165,6 @@
 
             ?>
             <!-- Comment -->
-
-
-
-
-            <!-- Pager -->
-            <!-- <ul class="pager">
-                <li class="previous">
-                    <a href="#">&larr; Older</a>
-                </li>
-                <li class="next">
-                    <a href="#">Newer &rarr;</a>
-                </li>
-            </ul> -->
 
         </div>
 
