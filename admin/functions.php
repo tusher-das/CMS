@@ -49,16 +49,20 @@ function confirm_query($result)
 function insert_categories()
 {
     global $connection;
+
     if (isset($_POST['submit'])) {
         $cat_title = $_POST['cat_title'];
         if ($cat_title == "" || empty($cat_title)) {
             echo "<span class='text-danger'> *This field should not be empty!</span>";
         } else {
-            $query                 = "INSERT INTO categories(cat_title) VALUE('{$cat_title}')";
-            $create_category_query = mysqli_query($connection, $query);
-            if (!$create_category_query) {
+            $stmt = mysqli_prepare($connection, "INSERT INTO categories(cat_title) VALUE(?)");
+            mysqli_stmt_bind_param($stmt, 's', $cat_title);
+            mysqli_stmt_execute($stmt);
+            if (!$stmt) {
                 die("Query Failed " . mysqli_error($connection));
             }
+
+            mysqli_stmt_close($stmt);
         }
     }
 }
