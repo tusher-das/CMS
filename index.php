@@ -60,7 +60,7 @@
 
                     <!-- First Blog Post -->
                     <h2>
-                        <a href="post.php?p_id=<?php echo $post_id; ?>">
+                        <a href="post/<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>
                         </a>
                     </h2>
