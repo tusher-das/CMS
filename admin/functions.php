@@ -2,7 +2,31 @@
 
 function redirect($location)
 {
-    return header("Location: " . $location);
+    header("Location: " . $location);
+    // exit;
+}
+
+function ifItIsMethod($method = null)
+{
+    if ($_SERVER['REQUEST_METHOD'] == strtoupper($method)) {
+        return true;
+    }
+    return false;
+}
+
+function isLoggedIn()
+{
+    if (isset($_SESSION['user_role'])) {
+        return true;
+    }
+
+    return false;
+}
+function checkIfUserIsLoggedInAndRedirect($redirectLocation = null)
+{
+    if (isLoggedIn()) {
+        redirect($redirectLocation);
+    }
 }
 
 function users_online()
@@ -121,10 +145,12 @@ function isAdmin($username = '')
     confirm_query($result);
 
     $row = mysqli_fetch_array($result);
-    if ($row['user_role'] == 'admin') {
-        return true;
-    } else {
-        return false;
+    if (mysqli_num_rows($result)) {
+        if ($row['user_role'] == 'admin') {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -202,21 +228,22 @@ function loginUser($username, $password)
         $db_user_firstname = $row['user_firstname'];
         $db_user_lastname  = $row['user_lastname'];
         $db_user_role      = $row['user_role'];
+
+        $password = crypt($password, $db_user_password);
+
+        if ($username === $db_username && $password === $db_user_password) {
+
+            $_SESSION['username']  = $db_username;
+            $_SESSION['firstname'] = $db_user_firstname;
+            $_SESSION['lastname']  = $db_user_lastname;
+            $_SESSION['user_role'] = $db_user_role;
+
+            redirect("/cms/admin");
+        } else {
+            return false;
+        }
     }
-
-    $password = crypt($password, $db_user_password);
-
-    if ($username === $db_username && $password === $db_user_password) {
-
-        $_SESSION['username']  = $db_username;
-        $_SESSION['firstname'] = $db_user_firstname;
-        $_SESSION['lastname']  = $db_user_lastname;
-        $_SESSION['user_role'] = $db_user_role;
-
-        redirect("/cms/admin");
-    } else {
-        redirect("/cms/index.php");
-    }
+    return true;
 }
 
 ?>

@@ -39,15 +39,27 @@
                     echo "<li class='$category_class'><a href='/cms/category/$cat_id'>{$cat_title}</a></li>";
                 }
                 ?>
-                <li>
-                    <a href="/cms/admin">Admin</a>
-                </li>
-                <li class='<?php echo $registration_class; ?>'>
-                    <a href="/cms/registration">Registration</a>
-                </li>
+
                 <li class='<?php echo $contact_class; ?>'>
                     <a href="/cms/contact">Contact</a>
                 </li>
+
+                <?php if (isLoggedIn()): ?>
+                    <li>
+                        <a href="/cms/admin">Admin</a>
+                    </li>
+                    <li>
+                        <a href="/cms/includes/logout.php">Logout</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="/cms/login">Login</a>
+                    </li>
+                    <li class='<?php echo $registration_class; ?>'>
+                        <a href="/cms/registration">Registration</a>
+                    </li>
+
+                <?php endif; ?>
 
                 <?php
                 // ***Problem

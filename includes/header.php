@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include("../cms/admin/functions.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +28,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/f69a2b0af5.js" crossorigin="anonymous"></script>
 
 </head>
 
