@@ -49,18 +49,22 @@ if (isset($_POST['checkBoxArray'])) {
 
 <form action="" method="post">
     <table class="table table-hover table-bordered">
-        <div id="bulkOptionsContainer" class="col-xs-4">
-            <select class="form-control" name="bulk_options" id="">
-                <option value="">Select Options</option>
-                <option value="published">Publish</option>
-                <option value="draft">Draft</option>
-                <option value="clone">Clone</option>
-                <option value="delete">Delete</option>
-            </select>
-        </div>
+        <?php if (isAdmin($_SESSION['username'])): ?>
+            <div id="bulkOptionsContainer" class="col-xs-4">
+                <select class="form-control" name="bulk_options" id="">
+                    <option value="">Select Options</option>
+                    <option value="published">Publish</option>
+                    <option value="draft">Draft</option>
+                    <option value="clone">Clone</option>
+                    <option value="delete">Delete</option>
+                </select>
+            </div>
+        <?php endif; ?>
         <div class="col-xs-4">
-            <input type="submit" name="submit" class="btn btn-success" value="Apply">
-            <a href="posts.php?source=add_post" class="btn btn-primary">Add New</a>
+            <?php if (isAdmin($_SESSION['username'])): ?>
+                <input type="submit" name="submit" class="btn btn-success" value="Apply">
+            <?php endif; ?>
+            <a href="posts.php?source=add_post" class="btn btn-primary" style="margin-bottom: 5px;">Add New</a>
         </div>
         <thead>
             <tr>
