@@ -28,11 +28,13 @@
                     mysqli_stmt_bind_param($stm1, 'i', $post_category_id);
                     mysqli_stmt_execute($stm1);
                     mysqli_stmt_bind_result($stm1, $post_id, $post_title, $post_author, $post_date, $post_image, $post_content);
+                    mysqli_stmt_store_result($stm1);
                     $stmt = $stm1;
                 } else {
                     mysqli_stmt_bind_param($stm2, 'is', $post_category_id, $published);
                     mysqli_stmt_execute($stm2);
                     mysqli_stmt_bind_result($stm2, $post_id, $post_title, $post_author, $post_date, $post_image, $post_content);
+                    mysqli_stmt_store_result($stm2);
                     $stmt = $stm2;
                 }
 
@@ -44,12 +46,7 @@
                 while (mysqli_stmt_fetch($stmt)):
                     ?>
 
-                    <h1 class="page-header">
-                        Page Heading
-                        <small>Secondary Text</small>
-                    </h1>
-
-                    <!-- First Blog Post -->
+                    <!-- Blog Post -->
                     <h2>
                         <a href="post.php?p_id=<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>

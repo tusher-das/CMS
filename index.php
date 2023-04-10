@@ -58,7 +58,7 @@
                     ?>
 
 
-                    <!-- First Blog Post -->
+                    <!-- Blog Post -->
                     <h2>
                         <a href="post/<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>
