@@ -183,6 +183,21 @@ function isExistsEmail($email)
     }
 }
 
+function encryptPassword($password)
+{
+    global $connection;
+    // password encryption related work
+    $query                 = "SELECT randSalt FROM users";
+    $select_randsalt_query = mysqli_query($connection, $query);
+    confirm_query($select_randsalt_query);
+    $row  = mysqli_fetch_array($select_randsalt_query);
+    $salt = $row['randSalt'];
+
+    $password = crypt($password, $salt); //encrypted password
+
+    return $password;
+}
+
 function registerUser($username, $email, $password)
 {
     global $connection;

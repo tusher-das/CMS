@@ -49,7 +49,8 @@ if (ifItIsMethod('post')) {
                         <button class="btn btn-primary" name="login" type="submit">Login</button></span>
                 </div>
                 <div class="form-group">
-                    <a href="forgot_password.php?forgot=<?php echo uniqid(true); ?>">Forgot Passord</a>
+                    <a href="forgot_password.php?forgot=<?php echo uniqid(true); ?>">Forgot
+                        Password</a>
                 </div>
             </form><!--Login form-->
 
