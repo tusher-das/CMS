@@ -27,7 +27,6 @@ if (isset($_POST['update_profile'])) {
     $user_lastname  = $_POST['user_lastname'];
     $user_role      = $_POST['user_role'];
     $user_email     = $_POST['user_email'];
-    $user_password  = $_POST['user_password'];
 
     $query = "UPDATE users SET ";
     $query .= "user_firstname = '{$user_firstname}', ";
@@ -39,6 +38,11 @@ if (isset($_POST['update_profile'])) {
 
     $update_user_query = mysqli_query($connection, $query);
     confirm_query($update_user_query);
+
+
+    $_SESSION['firstname'] = $user_firstname;
+    $_SESSION['lastname']  = $user_lastname;
+
     header("Location: users.php");
 
 }
@@ -93,11 +97,11 @@ if (isset($_POST['update_profile'])) {
                             <input type="email" name="user_email" class="form-control"
                                 value="<?php echo $user_email; ?>">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="user_password">Password</label>
                             <input type="password" name="user_password" class="form-control"
                                 value="<?php echo $user_password; ?>">
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <input class="btn btn-primary" type="submit" name="update_profile" value="UPDATE PROFILE">

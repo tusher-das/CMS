@@ -75,8 +75,12 @@ if (isset($_POST['checkBoxArray'])) {
                 <th>Comments</th>
                 <th>Date</th>
                 <th>View</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <!-- edit & delete  -->
+                <?php if (isAdmin($_SESSION['username'])): ?>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                <?php endif; ?>
+
                 <th>Views</th>
             </tr>
         </thead>
@@ -142,19 +146,20 @@ if (isset($_POST['checkBoxArray'])) {
 
                 echo "<td>{$post_date}</td>";
                 echo "<td><a class='btn btn-primary' href='../post.php?p_id=$post_id'>VIEW</a></td>";
-                echo "<td><a class='btn btn-info' href='posts.php?source=edit_post&p_id=$post_id'>EDIT</a></td>";
-
                 ?>
-                <form action="" method="post">
-                    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                    <?php
-                    echo '<td><input class="btn btn-danger" type="submit" name="delete" value="DELETE"></td>';
-                    ?>
-                </form>
+
+                <!-- Edit & Delete button -->
+                <?php if (isAdmin($_SESSION['username'])): ?>
+                    <?php echo "<td><a class='btn btn-info' href='posts.php?source=edit_post&p_id=$post_id'>EDIT</a></td>"; ?>
+                    <form action="" method="post">
+                        <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                        <?php
+                        echo '<td><input class="btn btn-danger" type="submit" name="delete" value="DELETE"></td>';
+                        ?>
+                    </form>
+                <?php endif; ?>
+
                 <?php
-                // echo "<td><a rel='{$post_id}' class='delete_link'>DELETE</a></td>";
-                // echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete'); \" href='posts.php?delete={$post_id}'>DELETE</a></td>";
-            
                 echo "<td><a href='posts.php?reset={$post_id}'>{$post_views_count}</a></td>";
                 echo "</tr>";
             }

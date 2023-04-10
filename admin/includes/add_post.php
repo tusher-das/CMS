@@ -3,7 +3,7 @@ if (isset($_POST['create_post'])) {
     $post_title       = $_POST['post_title'];
     $post_category_id = $_POST['post_category_id'];
     $post_author      = $_POST['post_author'];
-    $post_status      = $_POST['post_status'];
+    $post_status      = 'draft';
 
     $post_image      = $_FILES['post_image']['name'];
     $post_image_temp = $_FILES['post_image']['tmp_name'];
@@ -51,14 +51,14 @@ if (isset($_POST['create_post'])) {
     </div>
 
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="post_status">Post Status</label>
         <select name="post_status" id="" class="form-control">
             <option value="draft">Select Options</option>
             <option value="draft">Draft</option>
             <option value="published">Published</option>
         </select>
-    </div>
+    </div> -->
 
 
 
