@@ -31,7 +31,7 @@
                 $select_a_post_query = mysqli_query($connection, $query);
 
                 if (mysqli_num_rows($select_a_post_query) < 1) {
-                    echo "<h1 class='text-center'>No posts available</h1>";
+                    echo "<h1 class='text-center'>This post is not published yet!</h1>";
                 } else {
 
 
@@ -44,12 +44,7 @@
                         $post_content = $row['post_content'];
                         ?>
 
-                        <h1 class="page-header">
-                            Page Heading
-                            <small>Secondary Text</small>
-                        </h1>
-
-                        <!-- First Blog Post -->
+                        <!-- Blog Post -->
                         <h2>
                             <a href="post.php?p_id=<?php echo $post_id; ?>">
                                 <?php echo $post_title; ?>
