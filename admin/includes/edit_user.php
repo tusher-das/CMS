@@ -77,10 +77,6 @@ if (isset($_POST['edit_user'])) {
         <label for="user_email">Email</label>
         <input type="email" name="user_email" class="form-control" value="<?php echo $user_email; ?>">
     </div>
-    <div class="form-group">
-        <label for="user_password">Password</label>
-        <input type="password" name="user_password" class="form-control" value="<?php echo $user_password; ?>">
-    </div>
 
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="edit_user" value="UPDATE USER">
