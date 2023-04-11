@@ -13,7 +13,7 @@ if (ifItIsMethod('post')) {
 <div class="col-md-4">
 
     <!-- Blog Search Well -->
-    <div class="well">
+    <!-- <div class="well">
         <h4>Blog Search</h4>
         <form action="search.php" method="post">
             <div class="input-group">
@@ -24,9 +24,8 @@ if (ifItIsMethod('post')) {
                     </button>
                 </span>
             </div>
-        </form><!--search form-->
-        <!-- /.input-group -->
-    </div>
+        </form>
+    </div> -->
 
     <!-- Login -->
     <div class="well">
