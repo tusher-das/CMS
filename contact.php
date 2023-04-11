@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
                     }
                 }
                 ?>
-                <h1>Contact</h1>
+                <h1 class="text-center">Contact</h1>
                 <form action="" method="post" role="form" id="login-form" autocomplete="off">
                     <div class="form-group">
                         <label for="name" class="sr-only">Name</label>
@@ -86,8 +86,8 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
                     </div>
-                    <input type="submit" value="Submit" name="submit" id="btn-login"
-                        class="btn btn-custom btn-lg btn-block">
+                    <input type="submit" value="SEND" name="submit" id="btn-login"
+                        class="btn btn-primary btn-lg btn-block">
                 </form>
             </div>
         </div>
