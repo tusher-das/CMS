@@ -14,9 +14,11 @@
         <!-- <li><a href="">User Online:
                 <?php //echo users_online(); ?>
             </a></li> -->
-        <li><a href="">User Online: <span class="usersonline"></span> </a></li>
+        <li><a href="" style="color:green; font-size:20px;"><i class="fa fa-globe"></i> <span
+                    class="usersonline"></span>
+            </a></li>
 
-        <li><a href="../index.php">HOME SITE</a></li>
+        <li><a href="../index.php"><i class="fa fa-house"></i> HOME SITE</a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
