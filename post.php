@@ -51,7 +51,7 @@
                             </a>
                         </h2>
                         <p class="lead">
-                            by <a href="index.php">
+                            by <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $the_post_id; ?>">
                                 <?php echo $post_author; ?>
                             </a>
                         </p>
