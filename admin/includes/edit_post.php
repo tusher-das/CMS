@@ -110,11 +110,24 @@ if (isset($_POST['update_post'])) {
         <label for="post_tags">Post Tags</label>
         <input type="text" name="post_tags" value="<?php echo $post_tags; ?>" class="form-control">
     </div>
+
+
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea name="post_content" class="form-control" cols="30" rows="10"><?php echo $post_content; ?></textarea>
+        <textarea name="post_content" class="form-control" cols="30" rows="10"
+            id="editor"><?php echo $post_content; ?></textarea>
     </div>
+
+
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="update_post" value="UPDATE POST">
     </div>
 </form>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
