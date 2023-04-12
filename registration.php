@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="row">
                 <div class="col-xs-6 col-xs-offset-3">
                     <div class="form-wrap">
-                        <h1>Registration</h1>
+                        <h1 class="text-center">Registration</h1>
                         <form action="registration.php" method="post" role="form" id="login-form" autocomplete="off">
                             <h6 class="text-center">
                             </h6>
@@ -95,17 +95,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     <?php echo isset($error['password']) ? $error['password'] : '' ?>
                                 </p>
                             </div>
-
-                            <input type="submit" value="REGISTER" name="submit" id="btn-login"
-                                class="btn btn-custom btn-lg btn-block">
+                            <button class="btn btn-custom btn-lg btn-block" type="submit" name="submit"
+                                id="btn-login">Register <i class="fa-solid fa-right-to-bracket"></i></button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</div>
 
-<hr>
+    <hr>
 
-<?php include("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>

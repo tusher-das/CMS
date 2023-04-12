@@ -49,7 +49,7 @@ if (ifItIsMethod('post')) {
                                     </div>
 
                                     <div class="form-group">
-                                        <button class="form-control btn btn-lg btn-primary" type="submit" name="login"
+                                        <button class="btn btn-custom btn-lg btn-block" type="submit" name="login"
                                             id="btn-login">Login <i class="fa-solid fa-right-to-bracket"></i></button>
                                     </div>
                                 </form>

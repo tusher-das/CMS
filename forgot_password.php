@@ -102,7 +102,7 @@ if (ifItIsMethod('post')) {
                                         </div>
                                         <div class="form-group">
                                             <input type="submit" name="recover-submit" value="RECOVER"
-                                                class="btn btn-sm btn-primary">
+                                                class="btn btn-sm btn-custom">
                                         </div>
                                         <input type="hidden" class="hide" name="token">
                                     </form>
