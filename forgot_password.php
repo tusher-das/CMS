@@ -1,5 +1,11 @@
-<?php include("includes/db.php"); ?>
-<?php include("includes/header.php"); ?>
+<!-- Database connection -->
+<?php include('includes/db.php'); ?>
+
+<!-- HTML header -->
+<?php include('includes/header.php'); ?>
+
+<!-- Navigation -->
+<?php include('includes/navigation.php'); ?>
 
 <?php
 //Import PHPMailer classes into the global namespace
@@ -63,7 +69,7 @@ if (ifItIsMethod('post')) {
                 echo mysqli_error($connection);
             }
         } else {
-            echo "Wrong Email! Donot find any account.";
+            echo "Wrong Email! Can not find any account.";
         }
     }
 }
@@ -75,7 +81,6 @@ if (ifItIsMethod('post')) {
 
 <div class="container">
 
-    <div class="form-gap"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -122,7 +127,7 @@ if (ifItIsMethod('post')) {
             </div>
         </div>
     </div>
-</div>
 
-<hr>
-<?php include("includes/footer.php"); ?>
+    <hr>
+    <!-- Footer -->
+    <?php include("includes/footer.php"); ?>
