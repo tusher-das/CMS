@@ -87,8 +87,6 @@ if (isset($_POST['submit'])) {
                         <textarea class="form-control" name="body" id="body" cols="30" rows="10"
                             placeholder="Your message..."></textarea>
                     </div>
-                    <!-- <input type="submit" value="SEND" name="submit" id="btn-login"
-                        class="btn btn-primary btn-lg btn-block"> -->
                     <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" id="btn-login">SEND <i
                             class="fa-sharp fa-solid fa-paper-plane"></i></button>
                 </form>
