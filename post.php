@@ -49,6 +49,7 @@
                         <!-- Blog Post -->
                         <h2>
                             <?php echo $post_title; ?>
+                            <button class="btn heart-btn" title="Add to Favorite"><i class="fa-regular fa-heart"></i></button>
                         </h2>
                         <p class="lead">
                             by <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $the_post_id; ?>">

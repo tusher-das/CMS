@@ -65,6 +65,7 @@
                         <a href="post/<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>
                         </a>
+                        <button class="btn heart-btn" title="Add to Favorite"><i class="fa-regular fa-heart"></i></button>
                     </h2>
                     <p class="lead">
                         by <a href="author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $post_id; ?>">
@@ -80,10 +81,10 @@
                     </a>
                     <hr>
                     <p>
-                        <?php echo $post_content; ?>
+                        <?php echo $post_content . '...'; ?> <a class="btn"
+                            href="/cms/post.php?p_id=<?php echo $post_id; ?>">continue
+                            reading <span class="glyphicon glyphicon-chevron-right"></span></a>
                     </p>
-                    <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span
-                            class="glyphicon glyphicon-chevron-right"></span></a>
 
                     <hr><!-- Blog End -->
 
