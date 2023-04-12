@@ -1,4 +1,7 @@
+<!-- Database connection -->
 <?php include('includes/db.php'); ?>
+
+<!-- HTML header -->
 <?php include('includes/header.php'); ?>
 
 <!-- Navigation -->
@@ -16,6 +19,7 @@
             if (isset($_GET['p_id'])) {
                 $the_post_id = $_GET['p_id'];
 
+                //query to increase view count
                 $view_query = "UPDATE posts SET post_views_count = post_views_count+1 WHERE post_id = $the_post_id";
                 $send_query = mysqli_query($connection, $view_query);
                 if (!$send_query) {
@@ -33,8 +37,6 @@
                 if (mysqli_num_rows($select_a_post_query) < 1) {
                     echo "<h1 class='text-center'>This post is not published yet!</h1>";
                 } else {
-
-
                     while ($row = mysqli_fetch_assoc($select_a_post_query)) {
 
                         $post_title   = $row['post_title'];
@@ -46,9 +48,7 @@
 
                         <!-- Blog Post -->
                         <h2>
-                            <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                <?php echo $post_title; ?>
-                            </a>
+                            <?php echo $post_title; ?>
                         </h2>
                         <p class="lead">
                             by <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $the_post_id; ?>">
@@ -89,16 +89,14 @@
                                 die("Query Failed " . mysqli_error($connection));
                             }
 
-                            //query for update post comment count
-            
-                            $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+                            //query to update post comment count
+                            $query                       = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
                             $query .= "WHERE post_id = $the_post_id";
-
-
                             $increase_post_comment_count = mysqli_query($connection, $query);
                             if (!$increase_post_comment_count) {
                                 die("Query Failed " . mysqli_error($connection));
                             }
+
                         } else {
                             echo "<script>alert('Fields cannot be empty.')</script>";
                         }
@@ -122,7 +120,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary" name="create_comment">Submit</button>
                         </form>
-                    </div>
+                    </div><!-- ./Comments Form -->
                     <hr>
 
                     <?php
@@ -169,7 +167,7 @@
 
         </div>
 
-        <!-- Blog Sidebar Widgets Column -->
+        <!-- Sidebar Widgets Column -->
         <?php include('includes/sidebar.php'); ?>
 
     </div>
@@ -177,4 +175,5 @@
 
     <hr>
 
+    <!-- Footer -->
     <?php include('includes/footer.php'); ?>
