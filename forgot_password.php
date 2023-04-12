@@ -119,8 +119,6 @@ if (ifItIsMethod('post')) {
 
                             <?php endif; ?>
 
-
-
                         </div>
                     </div>
                 </div>
