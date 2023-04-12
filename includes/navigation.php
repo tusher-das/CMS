@@ -51,9 +51,6 @@
                     <li>
                         <a href="/cms/admin">Admin</a>
                     </li>
-                    <li>
-                        <a href="/cms/includes/logout.php">Logout</a>
-                    </li>
                 <?php else: ?>
                     <!-- <li>
                         <a href="/cms/login">Login</a>
