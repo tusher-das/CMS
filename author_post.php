@@ -1,7 +1,10 @@
+<!-- Database connection -->
 <?php include('includes/db.php'); ?>
+
+<!-- HTML header -->
 <?php include('includes/header.php'); ?>
 
-<!-- Navigation -->
+<!-- Navbar -->
 <?php include('includes/navigation.php'); ?>
 
 <!-- Page Content -->
@@ -54,7 +57,9 @@
                     <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span
                             class="glyphicon glyphicon-chevron-right"></span></a>
 
-                    <hr>
+                    <button class="btn heart-btn" title="Add to Favorite"><i class="fa-regular fa-heart"></i></button>
+
+                    <hr><!-- Blog Post end -->
 
                     <?php
                 }
@@ -63,12 +68,12 @@
 
         </div>
 
-        <!-- Blog Sidebar Widgets Column -->
+        <!-- Sidebar Widgets Column -->
         <?php include('includes/sidebar.php'); ?>
 
-    </div>
-    <!-- /.row -->
+    </div><!-- /.row -->
 
     <hr>
 
+    <!-- Footer -->
     <?php include('includes/footer.php'); ?>
