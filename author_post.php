@@ -14,6 +14,12 @@
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
+            <p class="lead">
+                All post by
+                <strong>
+                    <?php echo $_GET['author']; ?>
+                </strong>
+            </p>
 
             <?php
             if (isset($_GET['p_id'])) {
@@ -39,14 +45,9 @@
                             <?php echo $post_title; ?>
                         </a>
                     </h2>
-                    <p class="lead">
-                        All post by
-                        <?php echo $post_author; ?>
-                    </p>
                     <p><span class="glyphicon glyphicon-time"></span>
                         <?php echo $post_date; ?>
                     </p>
-                    <hr>
                     <a href="post.php?p_id=<?php echo $post_id; ?>">
                         <img class="img-responsive" width="800" height="200" src="images/<?php echo $post_image; ?>" alt="">
                     </a>
