@@ -1,4 +1,7 @@
+<!-- Database connection -->
 <?php include('includes/db.php'); ?>
+
+<!-- HTML header -->
 <?php include('includes/header.php'); ?>
 
 <!-- Navigation -->
@@ -13,6 +16,7 @@
         <div class="col-md-8">
 
             <?php
+            //pagination
             $per_page = 2;
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
@@ -24,31 +28,29 @@
                 $page_1 = 0;
             } else {
                 $page_1 = ($page * $per_page) - $per_page;
-            }
+            } //pagination end
+            
 
+            //role based query to show post
             if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
                 $post_query_count = "SELECT * FROM posts";
             } else {
                 $post_query_count = "SELECT * FROM posts WHERE post_status = 'published'";
             }
-
             $find_count = mysqli_query($connection, $post_query_count);
             $count      = mysqli_num_rows($find_count);
+
 
             if ($count < 1) {
                 echo "<h1 class='text-center'>No posts available</h1>";
             } else {
-
                 $count = ceil($count / $per_page);
-
 
                 $query                 = "SELECT * FROM posts LIMIT $page_1, $per_page";
                 $select_all_post_query = mysqli_query($connection, $query);
 
 
                 while ($row = mysqli_fetch_assoc($select_all_post_query)) {
-
-
                     $post_id      = $row['post_id'];
                     $post_title   = $row['post_title'];
                     $post_author  = $row['post_author'];
@@ -58,7 +60,7 @@
                     ?>
 
 
-                    <!-- Blog Post -->
+                    <!-- Blog -->
                     <h2>
                         <a href="post/<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>
@@ -83,7 +85,7 @@
                     <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span
                             class="glyphicon glyphicon-chevron-right"></span></a>
 
-                    <hr>
+                    <hr><!-- Blog End -->
 
                     <?php
                 }
@@ -111,9 +113,9 @@
                 ?>
             </ul>
 
-        </div>
+        </div> <!-- Blog Column End -->
 
-        <!-- Blog Sidebar Widgets Column -->
+        <!-- Sidebar Widgets Column -->
         <?php include('includes/sidebar.php'); ?>
 
     </div>
@@ -121,4 +123,5 @@
 
     <hr>
 
+    <!-- Footer -->
     <?php include('includes/footer.php'); ?>
