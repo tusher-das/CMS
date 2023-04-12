@@ -1,20 +1,24 @@
-<?php include("includes/db.php"); ?>
-<?php include("includes/header.php"); ?>
+<!-- Database connection -->
+<?php include('includes/db.php'); ?>
 
+<!-- HTML header -->
+<?php include('includes/header.php'); ?>
+
+<!-- Navigation -->
+<?php include('includes/navigation.php'); ?>
+
+<!-- Email sending related work -->
 <?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require './vendor/autoload.php';
-
 ?>
 
-<?php
 
+<?php
 if (isset($_POST['submit'])) {
     $name    = $_POST['name'];
     $subject = wordwrap($_POST['subject'], 70);
@@ -55,8 +59,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<!-- Navigation -->
-<?php include("includes/navigation.php"); ?>
 
 <!-- page content -->
 <div class="container">
@@ -72,28 +74,27 @@ if (isset($_POST['submit'])) {
                     }
                 }
                 ?>
-                <h1 class="text-center">Contact</h1>
+                <h1 class="text-center">LET'S GET IN TOUCH!</h1>
                 <form action="" method="post" role="form" id="login-form" autocomplete="off">
                     <div class="form-group">
-                        <label for="name" class="sr-only">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <label for="subject" class="sr-only">Subject</label>
                         <input type="text" name="subject" id="subject" class="form-control"
                             placeholder="Enter your subject">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="body" id="body" cols="30" rows="10"
+                            placeholder="Your message..."></textarea>
                     </div>
-                    <input type="submit" value="SEND" name="submit" id="btn-login"
-                        class="btn btn-primary btn-lg btn-block">
+                    <!-- <input type="submit" value="SEND" name="submit" id="btn-login"
+                        class="btn btn-primary btn-lg btn-block"> -->
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" id="btn-login">SEND <i
+                            class="fa-sharp fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
     </div>
-</div>
 
-<hr>
-
-<?php include("includes/footer.php"); ?>
+    <!-- Footer -->
+    <?php include('includes/footer.php'); ?>
