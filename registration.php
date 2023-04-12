@@ -98,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <button class="btn btn-custom btn-lg btn-block" type="submit" name="submit"
                                 id="btn-login">Register <i class="fa-solid fa-right-to-bracket"></i></button>
                         </form>
+                        <br>
+                        <small>Already have an account ? <a href="/cms/login">login now</a></small>
                     </div>
                 </div>
             </div>

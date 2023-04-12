@@ -55,9 +55,9 @@
                         <a href="/cms/includes/logout.php">Logout</a>
                     </li>
                 <?php else: ?>
-                    <li>
+                    <!-- <li>
                         <a href="/cms/login">Login</a>
-                    </li>
+                    </li> -->
                     <li class='<?php echo $registration_class; ?>'>
                         <a href="/cms/registration">Registration</a>
                     </li>
