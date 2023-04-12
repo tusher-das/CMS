@@ -1,4 +1,7 @@
+<!-- Database connection -->
 <?php include('includes/db.php'); ?>
+
+<!-- HTML header -->
 <?php include('includes/header.php'); ?>
 
 <!-- Navigation -->
@@ -53,7 +56,7 @@
                         </a>
                     </h2>
                     <p class="lead">
-                        by <a href="index.php">
+                        by <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $post_id; ?>">
                             <?php echo $post_author; ?>
                         </a>
                     </p>
@@ -67,12 +70,16 @@
                     </a>
                     <hr>
                     <p>
-                        <?php echo $post_content; ?>
+                        <?php
+                        $post_content = substr($post_content, 0, 100);
+                        echo $post_content;
+                        ?>
                     </p>
-                    <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span
+                    <a class="btn" href="/cms/post.php?p_id=<?php echo $post_id; ?>">continue reading <span
                             class="glyphicon glyphicon-chevron-right"></span></a>
+                    <button class="btn heart-btn" title="Add to Favorite"><i class="fa-regular fa-heart"></i></button>
 
-                    <hr>
+                    <hr><!-- ./Blog Post -->
 
                 <?php endwhile;
                 mysqli_stmt_close($stmt);
@@ -83,7 +90,7 @@
 
         </div>
 
-        <!-- Blog Sidebar Widgets Column -->
+        <!-- Sidebar Widgets Column -->
         <?php include('includes/sidebar.php'); ?>
 
     </div>
@@ -91,4 +98,5 @@
 
     <hr>
 
+    <!-- Footer -->
     <?php include('includes/footer.php'); ?>
