@@ -12,21 +12,6 @@ if (ifItIsMethod('post')) {
 
 <div class="col-md-4">
 
-    <!-- Blog Search Well -->
-    <!-- <div class="well">
-        <h4>Blog Search</h4>
-        <form action="search.php" method="post">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control">
-                <span class="input-group-btn">
-                    <button name="submit" class="btn btn-default" type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
-        </form>
-    </div> -->
-
     <!-- Login -->
     <div class="well">
         <?php if (isset($_SESSION['user_role'])): ?>
@@ -45,12 +30,11 @@ if (ifItIsMethod('post')) {
                 <div class="input-group">
                     <input type="password" name="password" placeholder="Enter Password" class="form-control">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" name="login" type="submit">Login</button></span>
+                        <button class="btn btn-custom" name="login" type="submit">Login</button></span>
                 </div>
-                <div class="form-group">
-                    <a href="forgot_password.php?forgot=<?php echo uniqid(true); ?>">Forgot
-                        Password</a>
-                </div>
+                <br>
+                <a href="forgot_password.php?forgot=<?php echo uniqid(true); ?>">Forgot
+                    Password</a>
             </form><!--Login form-->
 
         <?php endif; ?>
