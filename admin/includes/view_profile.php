@@ -14,15 +14,20 @@ if (isset($_SESSION['username'])) {
         $user_firstname = $row['user_firstname'];
         $user_lastname  = $row['user_lastname'];
         $user_email     = $row['user_email'];
-        // $user_image     = $row['user_image'];
+
+        $user_image = $row['user_image'];
+        if (empty($user_image)) {
+            $user_image = 'noImage.jpg';
+        }
+
         $user_role = $row['user_role'];
     }
 }
 ?>
 
 <div class="card" style="width: 20rem; margin: auto; text-align:center;">
-    <img src="./images/profile.jpg" class="card-img-top" style="width:100px; height:100px; border-radius: 50px"
-        alt="...">
+    <img src="../images/profile/<?php echo $user_image; ?>" class="card-img-top"
+        style="width:100px; height:100px; border-radius: 50px;" alt="...">
     <div class="card-body">
         <h3>
             <?php echo $user_firstname . ' ' . $user_lastname; ?>
