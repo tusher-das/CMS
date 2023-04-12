@@ -20,7 +20,7 @@
             if (isset($_GET['category'])) {
                 $post_category_id = $_GET['category'];
 
-                if (isAdmin($_SESSION['username'])) {
+                if (isAdmin(isset($_SESSION['username']))) {
                     $stm1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ?");
                 } else {
                     $stm2      = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ? AND post_status = ?");
@@ -51,7 +51,7 @@
 
                     <!-- Blog Post -->
                     <h2>
-                        <a href="post.php?p_id=<?php echo $post_id; ?>">
+                        <a href="/cms/post.php?p_id=<?php echo $post_id; ?>">
                             <?php echo $post_title; ?>
                         </a>
                     </h2>
