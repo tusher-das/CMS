@@ -7,9 +7,8 @@
 <!-- Navigation -->
 <?php include('includes/navigation.php'); ?>
 
+<!-- mail send related work -->
 <?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -75,9 +74,6 @@ if (ifItIsMethod('post')) {
 }
 
 ?>
-
-<!-- Navigation -->
-<?php include("includes/navigation.php"); ?>
 
 <div class="container">
 
