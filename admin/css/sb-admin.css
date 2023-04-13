@@ -24,7 +24,7 @@ body {
 #page-wrapper {
     width: 100%;
     padding: 0;
-    background-color: #fff;
+    background: url(../../images/body/pattern-1.png) left top repeat;
 }
 
 .huge {
@@ -235,4 +235,8 @@ ul.alert-dropdown {
         serif;
     color: #bd3b13 !important;
     font-size: 3rem;
+}
+
+.highlight{
+    color: #bd3b13;
 }
