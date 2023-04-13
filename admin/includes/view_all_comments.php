@@ -42,9 +42,9 @@
             }
 
             echo "<td>{$comment_date}</td>";
-            echo "<td><a href='comments.php?approve=$comment_id'>APPROVE</a></td>";
-            echo "<td><a href='comments.php?unapprove=$comment_id'>UNAPPROVE</a></td>";
-            echo "<td><a href='comments.php?delete=$comment_id'>DELETE</a></td>";
+            echo "<td><a href='comments.php?approve=$comment_id' class='btn btn-success'><i class='fa-solid fa-check'></i></a></td>";
+            echo "<td><a href='comments.php?unapprove=$comment_id' class='btn btn-warning'><i class='fa-solid fa-xmark'></i></a></td>";
+            echo "<td><a href='comments.php?delete=$comment_id' class='btn btn-danger'><i class='fa-solid fa-trash'></i></a></td>";
             echo "</tr>";
         }
         ?>
@@ -68,6 +68,7 @@ if (isset($_GET['approve'])) {
     $query                 = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id";
     $approve_comment_query = mysqli_query($connection, $query);
     confirm_query($approve_comment_query);
+    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
     header("Location: comments.php");
 }
 
