@@ -68,7 +68,6 @@ if (isset($_GET['approve'])) {
     $query                 = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id";
     $approve_comment_query = mysqli_query($connection, $query);
     confirm_query($approve_comment_query);
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
     header("Location: comments.php");
 }
 
