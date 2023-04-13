@@ -62,7 +62,7 @@ if (isset($_POST['update_profile'])) {
     $_SESSION['firstname'] = $user_firstname;
     $_SESSION['lastname']  = $user_lastname;
 
-    header("Location: users.php");
+    header("Location: profile.php");
 
 }
 ?>
@@ -99,7 +99,7 @@ if (isset($_POST['update_profile'])) {
         </div>
 
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="update_profile" value="UPDATE PROFILE">
+            <input class="btn btn-warning" type="submit" name="update_profile" value="UPDATE PROFILE">
         </div>
     </form>
 </div>

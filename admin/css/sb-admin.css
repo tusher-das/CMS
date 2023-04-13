@@ -240,3 +240,19 @@ ul.alert-dropdown {
 .highlight{
     color: #bd3b13;
 }
+
+.profile-card{
+    background-color: rgba(155, 155, 143, 0.1);
+    width: 40rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+.profile-card>img{
+    border: 5px solid #FAFAF5;
+}
+
+.profile-card-body>p{
+text-align: left;
+}
