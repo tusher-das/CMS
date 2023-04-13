@@ -42,6 +42,9 @@ if (!isset($_SESSION['user_role'])) {
 
     <script src="js/jquery.js"></script>
 
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/f69a2b0af5.js" crossorigin="anonymous"></script>
+
 
 </head>
 

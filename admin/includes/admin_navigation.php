@@ -7,18 +7,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">CMS Admin</a>
+        <a class="navbar-brand logo" href="index.php">CodeFlow</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <!-- <li><a href="">User Online:
-                <?php //echo users_online(); ?>
-            </a></li> -->
-        <li><a href="" style="color:green; font-size:20px;"><i class="fa fa-globe"></i> <span
+        <li><a href="" style="color:#00d3d1; font-size:20px;"><i class="fa-solid fa-globe"></i> <span
                     class="usersonline"></span>
             </a></li>
 
-        <li><a href="../index.php"><i class="fa fa-house"></i> HOME SITE</a></li>
+        <li><a href="../index.php">HOME <i class="fa-solid fa-right-from-bracket"></i></a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
@@ -55,7 +52,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
+            <li>
                 <a href="./comments.php"><i class="fa fa-fw fa-file"></i>Comments</a>
             </li>
 
@@ -76,12 +73,6 @@
                     </ul>
                 </li>
             <?php endif; ?>
-
-
-
-            <li>
-                <a href="./profile.php"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
-            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->

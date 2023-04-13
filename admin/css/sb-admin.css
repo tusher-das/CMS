@@ -227,3 +227,12 @@ ul.alert-dropdown {
     padding: 0;
     margin-bottom: 10px;
 }
+
+.logo {
+    font-family: "droid serif",
+        Georgia,
+        times,
+        serif;
+    color: #bd3b13 !important;
+    font-size: 3rem;
+}
