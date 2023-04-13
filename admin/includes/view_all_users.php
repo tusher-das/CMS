@@ -30,18 +30,10 @@
             echo "<td>{$user_lastname}</td>";
             echo "<td>{$user_email}</td>";
             echo "<td>{$user_role}</td>";
-
-            // $query                = "SELECT * FROM posts WHERE post_id = $comment_post_id";
-            // $select_post_id_query = mysqli_query($connection, $query);
-            // while ($row = mysqli_fetch_assoc($select_post_id_query)) {
-            //     $post_id    = $row['post_id'];
-            //     $post_title = $row['post_title'];
-            //     echo "<td><a href='../post.php?p_id=$post_id'>$post_title</a></td>";
-            // }
-            echo "<td><a href='users.php?change_to_admin=$user_id'>ADMIN</a></td>";
-            echo "<td><a href='users.php?change_to_sub=$user_id'>SUBSCRIBER</a></td>";
-            echo "<td><a href='users.php?source=edit_user&edit_user=$user_id'>EDIT</a></td>";
-            echo "<td><a href='users.php?delete=$user_id'>DELETE</a></td>";
+            echo "<td><a href='users.php?change_to_admin=$user_id' class='btn btn-success'>ADMIN</a></td>";
+            echo "<td><a href='users.php?change_to_sub=$user_id' class='btn btn-info'>SUBSCRIBER</a></td>";
+            echo "<td><a href='users.php?source=edit_user&edit_user=$user_id' class='btn btn-warning'>EDIT</a></td>";
+            echo "<td><a href='users.php?delete=$user_id' class='btn btn-danger'>DELETE</a></td>";
             echo "</tr>";
         }
         ?>

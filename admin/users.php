@@ -34,9 +34,6 @@ if (!isAdmin($_SESSION['username'])) {
                     case 'edit_user':
                         include("includes/edit_user.php");
                         break;
-                    case '200':
-                        echo "NICE 200";
-                        break;
                     default:
                         include("includes/view_all_users.php");
                         break;

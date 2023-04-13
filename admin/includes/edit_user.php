@@ -79,6 +79,6 @@ if (isset($_POST['edit_user'])) {
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="edit_user" value="UPDATE USER">
+        <input class="btn btn-warning" type="submit" name="edit_user" value="UPDATE USER">
     </div>
 </form>
