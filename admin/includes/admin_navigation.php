@@ -45,10 +45,11 @@
                     Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts_dropdown" class="collapse">
                     <li>
-                        <a href="./posts.php">View All Posts</a>
+                        <a href="./posts.php"><i class="fa-solid fa-border-all"></i> View All
+                            Posts</a>
                     </li>
                     <li>
-                        <a href="posts.php?source=add_post">Add Posts</a>
+                        <a href="posts.php?source=add_post"><i class="fa-solid fa-plus"></i> Add Posts</a>
                     </li>
                 </ul>
             </li>
@@ -65,10 +66,10 @@
                         Users <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">
                         <li>
-                            <a href="./users.php">View All Users</a>
+                            <a href="./users.php"><i class="fa-solid fa-users-viewfinder"></i> View All Users</a>
                         </li>
                         <li>
-                            <a href="users.php?source=add_user">Add User</a>
+                            <a href="users.php?source=add_user"><i class="fa-solid fa-user-plus"></i> Add User</a>
                         </li>
                     </ul>
                 </li>
