@@ -18,7 +18,9 @@ if (!isAdmin($_SESSION['username'])) {
 
             <!-- Page Heading -->
             <div class="row">
-                <?php include("includes/admin_heading.php"); ?>
+                <div class="col-lg-12">
+                    <h1 class="page-header highlight">Categories</h1>
+                </div>
 
                 <div class="col-xs-6">
                     <!-- Add category Form -->

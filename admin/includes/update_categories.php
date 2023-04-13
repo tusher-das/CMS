@@ -38,6 +38,6 @@
 
     </div>
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="update_category" value="UPDATE CATEGORY">
+        <input class="btn btn-info" type="submit" name="update_category" value="UPDATE CATEGORY">
     </div>
 </form><!-- !Update category Form -->

@@ -120,7 +120,7 @@ if (isset($_POST['update_post'])) {
 
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="update_post" value="UPDATE POST">
+        <input class="btn btn-warning" type="submit" name="update_post" value="UPDATE POST">
     </div>
 </form>
 

@@ -10,7 +10,9 @@
 
             <!-- Page Heading -->
             <div class="row">
-                <?php include("includes/admin_heading.php"); ?>
+                <div class="col-lg-12">
+                    <h1 class="page-header highlight">Posts</h1>
+                </div>
 
                 <?php
                 if (isset($_GET['source'])) {

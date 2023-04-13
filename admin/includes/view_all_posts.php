@@ -85,7 +85,7 @@ if (isset($_POST['checkBoxArray'])) {
                     <th>Delete</th>
                 <?php endif; ?>
 
-                <th>Views</th>
+                <th><i class='fa-solid fa-eye'></i></th>
             </tr>
         </thead>
         <tbody>
@@ -149,16 +149,16 @@ if (isset($_POST['checkBoxArray'])) {
                 echo "<td>{$count_comments}</td>";
 
                 echo "<td>{$post_date}</td>";
-                echo "<td><a class='btn btn-primary' href='../post.php?p_id=$post_id'>VIEW</a></td>";
+                echo "<td><a class='btn btn-info' href='../post.php?p_id=$post_id'><i class='fa-solid fa-eye'></i></a></td>";
                 ?>
 
                 <!-- Edit & Delete button -->
                 <?php if (isAdmin($_SESSION['username'])): ?>
-                    <?php echo "<td><a class='btn btn-info' href='posts.php?source=edit_post&p_id=$post_id'>EDIT</a></td>"; ?>
+                    <?php echo "<td><a class='btn btn-warning' href='posts.php?source=edit_post&p_id=$post_id'><i class='fa-solid fa-pen-to-square'></i></a></td>"; ?>
                     <form action="" method="post">
                         <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                         <?php
-                        echo '<td><input class="btn btn-danger" type="submit" name="delete" value="DELETE"></td>';
+                        echo '<td><input class="btn btn-danger" type="submit" name="delete" value="delete"></td>';
                         ?>
                     </form>
                 <?php endif; ?>

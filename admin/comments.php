@@ -10,7 +10,9 @@
 
             <!-- Page Heading -->
             <div class="row">
-                <?php include("includes/admin_heading.php"); ?>
+                <div class="col-lg-12">
+                    <h1 class="page-header highlight">Comments</h1>
+                </div>
 
                 <?php include("includes/view_all_comments.php"); ?>
 
