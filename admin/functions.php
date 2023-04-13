@@ -77,7 +77,7 @@ function insert_categories()
     if (isset($_POST['submit'])) {
         $cat_title = $_POST['cat_title'];
         if ($cat_title == "" || empty($cat_title)) {
-            echo "<span class='text-danger'> *This field should not be empty!</span>";
+            echo "<span class='text-danger'> *Category title is required!</span>";
         } else {
             $stmt = mysqli_prepare($connection, "INSERT INTO categories(cat_title) VALUE(?)");
             mysqli_stmt_bind_param($stmt, 's', $cat_title);
@@ -102,8 +102,8 @@ function show_all_categories()
         echo "<tr>
                 <td>{$cat_id}</td>
                 <td>{$cat_title}</td>
-                <td><a href='categories.php?delete={$cat_id}'>DELETE</a></td>
-                <td><a href='categories.php?edit={$cat_id}'>EDIT</a></td>
+                <td><a href='categories.php?edit={$cat_id}' class='btn btn-info'><i class='fa-solid fa-pen-to-square'></i></a></td>
+                <td><a href='categories.php?delete={$cat_id}' class='btn btn-danger'><i class='fa-solid fa-trash'></i></a></td>
             </tr>";
     }
 }
