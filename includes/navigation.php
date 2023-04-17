@@ -85,7 +85,22 @@
             <h4 class="modal-title">Your Favorite List</h4>
         </div>
         <div class="modal-body">
-            <p>JS Crash Course</p>
+            <?php
+            $the_user_id            = $_SESSION['user_id'];
+            $select_favorites_query = "SELECT * FROM favorites WHERE user_id = '{$the_user_id}'";
+            $select_favorites       = mysqli_query($connection, $select_favorites_query);
+            $count                  = mysqli_num_rows($select_favorites);
+            if ($count < 1) {
+                echo "<p>Your favorite list is empty!</p>";
+            } else {
+                while ($row = mysqli_fetch_assoc($select_favorites)) {
+                    $post_title = $row['post_title'];
+                    $post_id    = $row['post_id'];
+                    echo "<p><a href='/cms/post/$post_id'>" . $post_title . "</a></p>";
+                }
+            }
+            ?>
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" onclick="closeModal()">Close</button>

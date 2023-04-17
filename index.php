@@ -59,42 +59,14 @@
                     $post_content = substr($row['post_content'], 0, 100);
                     ?>
 
-
                     <!-- Blog -->
-                    <h2>
-                        <a href="post/<?php echo $post_id; ?>">
-                            <?php echo $post_title; ?>
-                        </a>
-                        <button class="btn heart-btn" title="Add to Favorite"><i class="fa-regular fa-heart"></i></button>
-                    </h2>
-                    <p class="lead">
-                        by <a href="author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $post_id; ?>">
-                            <?php echo $post_author; ?>
-                        </a>
-                    </p>
-                    <p><span class="glyphicon glyphicon-time"></span>
-                        <?php echo $post_date; ?>
-                    </p>
-                    <hr>
-                    <a href="post.php?p_id=<?php echo $post_id; ?>">
-                        <img class="img-responsive" width="800" height="200" src="images/<?php echo $post_image; ?>" alt="">
-                    </a>
-                    <hr>
-                    <p>
-                        <?php echo $post_content . '...'; ?> <a class="btn"
-                            href="/cms/post.php?p_id=<?php echo $post_id; ?>">continue
-                            reading <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    </p>
-
-                    <hr><!-- Blog End -->
+                    <?php showAllBlogPosts($post_id, $post_title, $post_author, $post_date, $post_image, $post_content); ?>
 
                     <?php
                 }
 
             }
             ?>
-
-
 
             <!-- Pager -->
             <ul class="pager">
@@ -112,7 +84,7 @@
 
                 }
                 ?>
-            </ul>
+            </ul><!-- Pager -->
 
         </div> <!-- Blog Column End -->
 
@@ -122,7 +94,29 @@
     </div>
     <!-- /.row -->
 
-    <hr>
-
     <!-- Footer -->
     <?php include('includes/footer.php'); ?>
+
+    <!-- Favorite list add & remove -->
+    <?php
+    if (isset($_POST['add_favorite'])) {
+        $the_post_id    = $_POST['post_id'];
+        $the_post_title = $_POST['post_title'];
+        $the_user_id    = $_SESSION['user_id'];
+        if (!empty($the_post_id) && !empty($the_post_title) && !empty($the_user_id)) {
+            $query              = "INSERT INTO `favorites` (`favorite_id`, `user_id`, `post_id`, `post_title`) VALUES (NULL, '{$the_user_id}', '{$the_post_id}', '{$the_post_title}')";
+            $add_favorite_query = mysqli_query($connection, $query);
+            confirm_query($add_favorite_query);
+            header("Refresh:0");
+        }
+
+    }
+
+    if (isset($_POST['remove_favorite'])) {
+        $the_post_id           = $_POST['post_id'];
+        $remove_faborite_query = "DELETE FROM favorites WHERE post_id = $the_post_id";
+        $remove_faborite       = mysqli_query($connection, $remove_faborite_query);
+        confirm_query($remove_faborite);
+        header("Refresh:0");
+    }
+    ?>
