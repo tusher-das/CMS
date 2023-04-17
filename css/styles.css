@@ -35,3 +35,42 @@
     background-color: #bd3b13;
     color:white;
 }
+
+.favorite-modal-btn{
+    position: absolute;
+    right: 0;
+    top: 50vh;
+    background-color: #bd3b13;
+    color: white;
+    font-size: x-large;
+}
+.favorite-modal-btn:hover{
+    color: white;
+    opacity: 90%;
+}
+
+.modal-show{
+    z-index: 100;
+    position: absolute;
+    width: 30rem;
+    top: 40vh;
+    scale: 100%;
+    right: 6rem;
+    opacity: 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(18, 16, 16);
+    transition: right 1s, scale 1s;
+}
+
+.modal-close{
+    position: absolute;
+    width: 30rem;
+    top: 40vh;
+    background-color: white;
+    border-radius: 5px;
+    scale: 10%;
+    right: -15%;
+    transition: right 1s, scale 1s;
+    opacity: 0;
+}

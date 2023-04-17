@@ -52,9 +52,6 @@
                         <a href="/cms/admin">Admin</a>
                     </li>
                 <?php else: ?>
-                    <!-- <li>
-                        <a href="/cms/login">Login</a>
-                    </li> -->
                     <li class='<?php echo $registration_class; ?>'>
                         <a href="/cms/registration">Registration</a>
                     </li>
@@ -78,4 +75,20 @@
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
+
+    <button type="button" title="Show favorite list" onclick="showModal()" class="btn btn-lg favorite-modal-btn"><i
+            class="fa-solid fa-heart"></i></button>
+    <!-- Modal content-->
+    <div id="modal-content" class="modal-close">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" onclick="closeModal()">&times;</button>
+            <h4 class="modal-title">Your Favorite List</h4>
+        </div>
+        <div class="modal-body">
+            <p>JS Crash Course</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="closeModal()">Close</button>
+        </div>
+    </div>
 </nav>

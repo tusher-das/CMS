@@ -21,6 +21,7 @@
     <link href="/cms/css/blog-home.css" rel="stylesheet">
     <link href="/cms/css/styles.css" rel="stylesheet">
 
+
     <!-- Fontawesome icons -->
     <script src="https://kit.fontawesome.com/f69a2b0af5.js" crossorigin="anonymous"></script>
 
