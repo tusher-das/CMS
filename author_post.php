@@ -39,47 +39,7 @@
                     $post_content = substr($row['post_content'], 0, 100);
                     ?>
 
-                    <!-- Blog Post -->
-                    <div class="post-title">
-                        <h2>
-                            <a href="post.php?p_id=<?php echo $post_id; ?>">
-                                <?php echo $post_title; ?>
-                            </a>
-                        </h2>
-                        <!-- show add to favorite list button when user is logged in -->
-                        <?php if (isLoggedIn()): ?>
-                            <form action="" method="post">
-                                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                                <input type="hidden" name="post_title" value="<?php echo $post_title; ?>">
-                                <!-- Condition to check post already in favorite list or not -->
-                                <?php
-                                $select_isFavorite_query = "SELECT * FROM favorites WHERE post_id = '{$post_id}' AND user_id = '{$_SESSION['user_id']}'";
-                                $isFavorite              = mysqli_query($connection, $select_isFavorite_query);
-                                if (mysqli_num_rows($isFavorite) > 0) {
-                                    echo "<button type='submit' title='add to favorite list' name='remove_favorite' class='btn heart-btn'><i class='fa-solid fa-heart'></i></button>";
-                                } else {
-                                    echo "<button type='submit' title='add to favorite list' name='add_favorite' class='btn heart-btn'><i class='fa-regular fa-heart'></i></button>";
-
-                                }
-                                ?>
-                            </form>
-                        <?php endif; ?>
-                        <!-- ./ -->
-                    </div>
-                    <p><span class="glyphicon glyphicon-time"></span>
-                        <?php echo $post_date; ?>
-                    </p>
-                    <a href="post.php?p_id=<?php echo $post_id; ?>">
-                        <img class="img-responsive" width="800" height="200" src="images/<?php echo $post_image; ?>" alt="">
-                    </a>
-                    <hr>
-                    <p>
-                        <?php echo $post_content; ?>
-                    </p>
-                    <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span
-                            class="glyphicon glyphicon-chevron-right"></span></a>
-
-                    <hr><!-- Blog Post end -->
+                    <?php showAllBlogPosts($post_id, $post_title, $post_author, $post_date, $post_image, $post_content); ?>
 
                     <?php
                 }

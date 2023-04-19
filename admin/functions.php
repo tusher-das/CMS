@@ -269,30 +269,12 @@ function loginUser($username, $password)
 
 function showAllBlogPosts($post_id, $post_title, $post_author, $post_date, $post_image, $post_content)
 {
-    global $connection
+    global $connection;
+    $post_content = substr($post_content, 0, 50);
     ?>
     <div class="post-title">
         <h2><a href="/cms/post.php?p_id=<?php echo $post_id; ?>"> <?php echo $post_title; ?> </a></h2>
 
-        <!-- show add to favorite list button when user is logged in -->
-        <?php if (isLoggedIn()): ?>
-            <form action="" method="post">
-                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                <input type="hidden" name="post_title" value="<?php echo $post_title; ?>">
-                <!-- Condition to check post already in favorite list or not -->
-                <?php
-                $select_isFavorite_query = "SELECT * FROM favorites WHERE post_id = '{$post_id}' AND user_id = '{$_SESSION['user_id']}'";
-                $isFavorite              = mysqli_query($connection, $select_isFavorite_query);
-                if (mysqli_num_rows($isFavorite) > 0) {
-                    echo "<button type='submit' title='add to favorite list' name='remove_favorite' class='btn heart-btn'><i class='fa-solid fa-heart'></i></button>";
-                } else {
-                    echo "<button type='submit' title='add to favorite list' name='add_favorite' class='btn heart-btn'><i class='fa-regular fa-heart'></i></button>";
-
-                }
-                ?>
-            </form>
-        <?php endif; ?>
-        <!-- ./ -->
     </div>
 
     <p class="lead">
@@ -308,14 +290,73 @@ function showAllBlogPosts($post_id, $post_title, $post_author, $post_date, $post
         <img class="img-responsive" width="800" height="200" src="/cms/images/<?php echo $post_image; ?>" alt="">
     </a>
     <hr>
-    <p>
-        <?php
-        $post_content = substr($post_content, 0, 100);
-        echo $post_content . '...';
-        ?>
-        <a class="btn" href="/cms/post.php?p_id=<?php echo $post_id; ?>">continue reading <span
-                class="glyphicon glyphicon-chevron-right"></span></a>
-    </p>
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+        <?php echo $post_content . "..." . "<a class='btn' href='/cms/post.php?p_id=$post_id'>continue reading<span class='glyphicon glyphicon-chevron-right'></span></a>" ?>
+
+
+        <!-- show add to favorite list button when user is logged in -->
+        <?php if (isLoggedIn()): ?>
+            <form action="" method="post">
+                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                <input type="hidden" name="post_title" value="<?php echo $post_title; ?>">
+                <!-- Condition to check post already in favorite list or not -->
+                <?php
+                $select_isFavorite_query = "SELECT * FROM favorites WHERE post_id = '{$post_id}' AND user_id = '{$_SESSION['user_id']}'";
+                $isFavorite              = mysqli_query($connection, $select_isFavorite_query);
+                if (mysqli_num_rows($isFavorite) > 0) {
+                    echo "<button type='submit' title='remove from favorite list' name='remove_favorite' class='btn heart-btn'><i class='fa-solid fa-heart'></i></button>";
+                } else {
+                    echo "<button type='submit' title='add to favorite list' name='add_favorite' class='btn heart-btn'><i class='fa-regular fa-heart'></i></button>";
+
+                }
+                ?>
+            </form>
+        <?php endif; ?>
+        <!-- ./ -->
+
+        <!-- Share options -->
+        <div id="share-box">
+            <span class="share-btn">share <i class="fa-regular fa-share-from-square"></i></span>
+            <div id="share-options">
+                <p class="title">Share with</p>
+                <div class="social-media">
+                    <?php
+                    $url  = 'https://codeflowcms.000webhostapp.com/post.php?p_id=' . $post_id;
+                    $text = 'Check out this link: ' . $url;
+
+                    // The complete link for sharing with WhatsApp
+                    $whatsapp_link = 'https://wa.me/?text=' . urlencode($text);
+                    // The complete link for sharing with Instagram
+                    $instagram_link = 'https://www.instagram.com/?url=' . urlencode($url);
+                    // The complete link for sharing with Facebook
+                    $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($url) . '&quote=' . urlencode($text);
+                    // The complete link for sharing with Twitter
+                    $twitter_link = 'https://twitter.com/share?url=' . urlencode($url) . '&text=' . urlencode($text);
+                    // The complete link for sharing with LinkedIn
+                    $linkedin_link = 'https://www.linkedin.com/shareArticle?url=' . urlencode($url) . '&title=' . urlencode($text);
+
+                    ?>
+                    <a class="social-media-btn" href="<?php echo $whatsapp_link; ?>" target="_blank"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a class="social-media-btn" href="<?php echo $instagram_link; ?>" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="social-media-btn" href="<?php echo $twitter_link; ?>" target="_blank"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="social-media-btn" href="<?php echo $facebook_link; ?>" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="social-media-btn" href="<?php echo $linkedin_link; ?>" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="link-container">
+                    <p class="link">
+                        <?php echo $url; ?>
+                    </p>
+                    <button class="copy-btn" onclick="copyToClipboard('<?php echo $url; ?>')">copy</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <hr><!-- Blog End -->
     <?php
@@ -329,25 +370,6 @@ function showSingleBlogPost($post_title, $the_post_id, $post_author, $post_image
         <h2>
             <?php echo $post_title; ?>
         </h2>
-        <!-- show add to favorite list button when user is logged in -->
-        <?php if (isLoggedIn()): ?>
-            <form action="" method="post">
-                <input type="hidden" name="post_id" value="<?php echo $the_post_id; ?>">
-                <input type="hidden" name="post_title" value="<?php echo $post_title; ?>">
-                <!-- Condition to check post already in favorite list or not -->
-                <?php
-                $select_isFavorite_query = "SELECT * FROM favorites WHERE post_id = '{$the_post_id}' AND user_id = '{$_SESSION['user_id']}'";
-                $isFavorite              = mysqli_query($connection, $select_isFavorite_query);
-                if (mysqli_num_rows($isFavorite) > 0) {
-                    echo "<button type='submit' title='add to favorite list' name='remove_favorite' class='btn heart-btn'><i class='fa-solid fa-heart'></i></button>";
-                } else {
-                    echo "<button type='submit' title='add to favorite list' name='add_favorite' class='btn heart-btn'><i class='fa-regular fa-heart'></i></button>";
-
-                }
-                ?>
-            </form>
-        <?php endif; ?>
-        <!-- ./ -->
     </div>
     <p class="lead">
         by <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $the_post_id; ?>">
@@ -365,6 +387,70 @@ function showSingleBlogPost($post_title, $the_post_id, $post_author, $post_image
     <p>
         <?php echo $post_content; ?>
     </p>
+
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+        <!-- show add to favorite list button when user is logged in -->
+        <?php if (isLoggedIn()): ?>
+            <form action="" method="post">
+                <input type="hidden" name="post_id" value="<?php echo $the_post_id; ?>">
+                <input type="hidden" name="post_title" value="<?php echo $post_title; ?>">
+                <!-- Condition to check post already in favorite list or not -->
+                <?php
+                $select_isFavorite_query = "SELECT * FROM favorites WHERE post_id = '{$the_post_id}' AND user_id = '{$_SESSION['user_id']}'";
+                $isFavorite              = mysqli_query($connection, $select_isFavorite_query);
+                if (mysqli_num_rows($isFavorite) > 0) {
+                    echo "<button type='submit' title='remove from favorite list' name='remove_favorite' class='btn heart-btn'><i class='fa-solid fa-heart'></i></button>";
+                } else {
+                    echo "<button type='submit' title='add to favorite list' name='add_favorite' class='btn heart-btn'><i class='fa-regular fa-heart'></i></button>";
+
+                }
+                ?>
+            </form>
+        <?php endif; ?>
+        <!-- ./ -->
+
+        <!-- Share options -->
+        <div id="share-box">
+            <span class="share-btn">share <i class="fa-regular fa-share-from-square"></i></span>
+            <div id="share-options">
+                <p class="title">Share with</p>
+                <div class="social-media">
+                    <?php
+                    $url  = 'https://codeflowcms.000webhostapp.com/post.php?p_id=' . $the_post_id;
+                    $text = 'Check out this link: ' . $url;
+
+                    // The complete link for sharing with WhatsApp
+                    $whatsapp_link = 'https://wa.me/?text=' . urlencode($text);
+                    // The complete link for sharing with Instagram
+                    $instagram_link = 'https://www.instagram.com/?url=' . urlencode($url);
+                    // The complete link for sharing with Facebook
+                    $facebook_link = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($url) . '&quote=' . urlencode($text);
+                    // The complete link for sharing with Twitter
+                    $twitter_link = 'https://twitter.com/share?url=' . urlencode($url) . '&text=' . urlencode($text);
+                    // The complete link for sharing with LinkedIn
+                    $linkedin_link = 'https://www.linkedin.com/shareArticle?url=' . urlencode($url) . '&title=' . urlencode($text);
+
+                    ?>
+                    <a class="social-media-btn" href="<?php echo $whatsapp_link; ?>" target="_blank"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a class="social-media-btn" href="<?php echo $instagram_link; ?>" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="social-media-btn" href="<?php echo $twitter_link; ?>" target="_blank"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="social-media-btn" href="<?php echo $facebook_link; ?>" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="social-media-btn" href="<?php echo $linkedin_link; ?>" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="link-container">
+                    <p class="link">
+                        <?php echo $url; ?>
+                    </p>
+                    <button class="copy-btn" onclick="copyToClipboard('<?php echo $url; ?>')">copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <hr>
     <?php

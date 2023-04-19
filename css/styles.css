@@ -7,7 +7,7 @@
         Georgia,
         times,
         serif;
-    color: #bd3b13 !important;
+    color: #ff7d7d !important;
     font-size: 3rem;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .search-icon{
-    color: #bd3b13;
+    color: #ff7d7d;
 }
 
 .pager li .active_link{
@@ -30,13 +30,123 @@
 
 .heart-btn{
     font-size: 25px;
-    padding: 0 10px;
-    margin-top: 25px;
-    color: #bd3b13;
+    background-color: transparent;
+    color: #ff7d7d;
+    font-size: 3rem;
 }
 
+/* Share box style */
+#share-box{
+    position: relative;
+    cursor: pointer;
+}
+.share-btn{
+    color: #ff7d7d;
+    font-size: 2rem;
+}
+#share-options {
+    position: absolute;
+    bottom: 50%;
+    left: 90%;
+    width: auto;
+    height: auto;
+    transform-origin: bottom left;
+
+    transform: scale(0);
+    visibility: hidden;
+    
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #ff7d7d;
+    color: #fff;
+    padding: 20px;
+    transition: .5s;
+    transition-delay: .5s;
+    z-index: 1;
+
+}
+#share-box:hover #share-options{
+    visibility: visible ;
+    transform: scale(1);
+}
+
+.title{
+    font-size: 20px;
+    text-transform: capitalize;
+    border-bottom: 1px solid #fff;
+    width: fit-content;
+    padding: 0 20px 3px 0;
+}
+.social-media{
+    width: 250px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+.social-media-btn{
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    line-height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+    text-align: center;
+}
+.social-media-btn:nth-child(1){
+    background: #25D366;
+}
+.social-media-btn:nth-child(2){
+    background: #E4405F;
+}
+.social-media-btn:nth-child(3){
+    background: #1DA1F2;
+}
+.social-media-btn:nth-child(4){
+    background: #1877F2;
+}
+.social-media-btn:nth-child(5){
+    background: #0A66C2;
+}
+.link-container{
+    width: 100%;
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.link{
+    width: 80%;
+    height: 100%;
+    line-height: 40px;
+    color: #000;
+}
+.copy-btn{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    border: none;
+    height: 100%;
+    width: 30%;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+/* Share box style */
+
+
 .btn-custom{
-    background-color: #bd3b13;
+    background-color: #ff7d7d;
     color:white;
 }
 
@@ -44,7 +154,7 @@
     position: absolute;
     right: 0;
     top: 50vh;
-    background-color: #bd3b13;
+    background-color: #ff7d7d;
     color: white;
     font-size: x-large;
 }
@@ -78,3 +188,4 @@
     transition: right 1s, scale 1s;
     opacity: 0;
 }
+
