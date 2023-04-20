@@ -16,7 +16,7 @@
         <div class="col-md-8">
             <p class="lead">
                 All post by
-                <strong>
+                <strong style="color:#ff7d7d">
                     <?php echo $_GET['author']; ?>
                 </strong>
             </p>

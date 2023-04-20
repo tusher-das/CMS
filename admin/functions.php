@@ -368,7 +368,7 @@ function showSingleBlogPost($post_title, $the_post_id, $post_author, $post_image
     global $connection;
     ?>
     <div class="post-title">
-        <h2>
+        <h2 style="color:#ff7d7d;">
             <?php echo $post_title; ?>
         </h2>
     </div>
