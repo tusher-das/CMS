@@ -11,7 +11,26 @@
 checkIfUserIsLoggedInAndRedirect('/cms/admin');
 if (ifItIsMethod('post')) {
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        loginUser($_POST['username'], $_POST['password']);
+        $error = [
+            'username' => '',
+            'password' => ''
+        ];
+        if ($_POST['username'] === '') {
+            $error['username'] = '*username can not be empty!';
+        }
+        if ($_POST['password'] === '') {
+            $error['password'] = '*password can not be empty';
+        }
+
+        foreach ($error as $key => $value) {
+            if (empty($value)) {
+                unset($error[$key]);
+            }
+        }
+
+        if (empty($error)) {
+            loginUser($_POST['username'], $_POST['password']);
+        }
     } else {
         redirect('/cms/login.php');
     }
@@ -38,7 +57,11 @@ if (ifItIsMethod('post')) {
                                             <input type="text" name="username" class="form-control"
                                                 placeholder="Enter username" id="">
                                         </div>
+                                        <p style="color:red;">
+                                            <?php echo isset($error['username']) ? $error['username'] : '' ?>
+                                        </p>
                                     </div>
+
 
                                     <div class="form-group">
                                         <div class="input-group">
@@ -46,6 +69,9 @@ if (ifItIsMethod('post')) {
                                             <input type="password" name="password" class="form-control"
                                                 placeholder="Enter password" id="">
                                         </div>
+                                        <p style="color:red;">
+                                            <?php echo isset($error['password']) ? $error['password'] : '' ?>
+                                        </p>
                                     </div>
 
                                     <div class="form-group">
