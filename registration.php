@@ -15,25 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // username validation
     if (strlen($username) < 4) {
-        $error['username'] = 'Username needs to be longer then 3 character!';
+        $error['username'] = '*username needs to be longer then 3 character!';
     }
     if ($username == '') {
-        $error['username'] = 'Username cannot be empty!';
+        $error['username'] = '*username cannot be empty!';
     }
     if (isExistsUsername($username)) {
-        $error['username'] = 'Username already exists, pick another one!';
+        $error['username'] = '*username already exists, pick another one!';
     }
 
     // email validation
     if ($email == '') {
-        $error['email'] = 'email cannot be empty!';
+        $error['email'] = '*email cannot be empty!';
     }
     if (isExistsEmail($email)) {
-        $error['email'] = 'email already exists, <a href="index.php">Login here</a>';
+        $error['email'] = '*email already exists, <a href="index.php">Login here</a>';
     }
 
     if ($password == '') {
-        $error['password'] = 'Password cannot be empty!';
+        $error['password'] = '*password cannot be empty!';
     }
 
     foreach ($error as $key => $value) {
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <input type="text" name="username" id="username" class="form-control"
                                     placeholder="Enter Desired Username" autocomplete="on"
                                     value="<?php echo isset($username) ? $username : '' ?>">
-                                <p>
+                                <p style="color:red;">
                                     <?php echo isset($error['username']) ? $error['username'] : '' ?>
                                 </p>
                             </div>
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     placeholder="somebody@example.com" autocomplete="on"
                                     value="<?php echo isset($email) ? $email : '' ?>">
 
-                                <p>
+                                <p style="color:red;">
                                     <?php echo isset($error['email']) ? $error['email'] : '' ?>
                                 </p>
                             </div>
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <label for="password" class="sr-only">Password</label>
                                 <input type="password" name="password" id="key" class="form-control"
                                     placeholder="Enter Password">
-                                <p>
+                                <p style="color:red;">
                                     <?php echo isset($error['password']) ? $error['password'] : '' ?>
                                 </p>
                             </div>
