@@ -259,6 +259,7 @@ function loginUser($username, $password)
 
             redirect("/cms/admin");
         } else {
+            echo '<script>alert("username and password do not match!")</script>';
             return false;
         }
     }
