@@ -1,3 +1,10 @@
+/* global styles */
+.btn-custom {
+    background-color: #ff7d7d;
+    color: white;
+}
+
+/* navbar styles */
 .nav-bg{
     background: transparent !important;
     backdrop-filter: blur(10px);
@@ -18,11 +25,10 @@
 .search-icon{
     color: #ff7d7d;
 }
+/* ./navbar styles */
 
-.pager li .active_link{
-    background: #000 !important;
-}
 
+/* blog post styles */
 .post-title{
     display: flex;
     justify-content: space-between;
@@ -142,14 +148,11 @@
     text-transform: capitalize;
     font-size: 16px;
 }
-/* Share box style */
+/* ./Share box style */
+/* blog post styles */
 
 
-.btn-custom{
-    background-color: #ff7d7d;
-    color:white;
-}
-
+/* Modal styles */
 .favorite-modal-btn{
     position: absolute;
     right: 0;
@@ -188,4 +191,9 @@
     transition: right 1s, scale 1s;
     opacity: 0;
 }
+/* ./Modal styles */
 
+/* pager */
+.pager li .active_link {
+    background: #ff7d7d !important;
+}
